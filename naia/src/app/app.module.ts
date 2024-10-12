@@ -20,6 +20,8 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { AgCharts } from 'ag-charts-angular';
+import { AgGridAngular } from 'ag-grid-angular';
 registerLocaleData(en);
 
 @NgModule({
@@ -41,7 +43,9 @@ registerLocaleData(en);
     NzMenuModule,
     NzSelectModule,
     NzDatePickerModule,
-    NzIconModule
+    NzIconModule,
+    AgGridAngular,
+    AgCharts
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

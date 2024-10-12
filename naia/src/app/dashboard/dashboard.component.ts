@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { getISOWeek } from 'date-fns';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,5 +12,8 @@ export class DashboardComponent {
 
   onChange(result: Date[]): void {
     console.log('onChange: ', result);
+  }
+  getWeek(result: Date[]): void {
+    console.log('week: ', result.map(getISOWeek));
   }
 }
