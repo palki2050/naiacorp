@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+  isCollapsed = false;
+  date = null;
 
+  onChange(result: Date[]): void {
+    console.log('onChange: ', result);
+  }
 }

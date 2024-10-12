@@ -1,1 +1,16 @@
-<p>dashboard works!</p>
+
+    <div class="inner-content">
+      <nz-select ngModel="lucy">
+        <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+        <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+      </nz-select>
+
+      <nz-range-picker [nzShowTime]="true" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+      <br />
+      <router-outlet></router-outlet>
+
+      <app-aggrid></app-aggrid>
+
+      <app-agchart></app-agchart>
+    </div>
