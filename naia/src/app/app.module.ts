@@ -30,8 +30,8 @@ registerLocaleData(en);
     DashboardComponent,
     SidebarComponent,
     HeaderComponent,
-    AggridComponent,
-    AgchartComponent
+    AgchartComponent,
+    AggridComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +45,7 @@ registerLocaleData(en);
     NzDatePickerModule,
     NzIconModule,
     AgGridAngular,
-    AgCharts
+    AgCharts,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

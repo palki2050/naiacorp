@@ -1,9 +1,15 @@
-<nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
-    [nzTrigger]="null"><app-sidebar></app-sidebar>
-  </nz-sider>
-  <nz-layout>
-    <nz-header><app-header></app-header></nz-header>
-    <nz-content><app-dashboard></app-dashboard></nz-content>
-  </nz-layout>
+<!---theme-->
+<nz-layout>
+  <nz-header>
+    <app-header></app-header>
+  </nz-header>
+  <nz-content class="outer-content">
+    <nz-layout class="inner-layout">
+      <nz-sider nzWidth="200px" nzTheme="light">
+        <app-sidebar></app-sidebar>
+      </nz-sider>
+      <nz-content class="inner-content"><app-dashboard></app-dashboard>></nz-content>
+    </nz-layout>
+    <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+  </nz-content>
 </nz-layout>

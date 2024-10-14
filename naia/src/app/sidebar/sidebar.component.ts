@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { getISOWeek } from 'date-fns';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
-  isCollapsed = false;
+  date = null;
+
+  onChange(result: Date[]): void {
+    console.log('onChange: ', result);
+  }
+  getWeek(result: Date[]): void {
+    console.log('week: ', result.map(getISOWeek));
+  }
 }
