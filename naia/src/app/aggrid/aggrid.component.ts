@@ -11,14 +11,7 @@ ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
 @Component({
   selector: 'app-aggrid',
-  template: `<ag-grid-angular
-    style="width: 100%; height: 100%;"
-    [columnDefs]="columnDefs"
-    [rowData]="rowData"
-    [defaultColDef]="defaultColDef"
-    [class]="themeClass"
-    (gridReady)="onGridReady()"
-  /> `,
+  templateUrl: 'aggrid.component.html',
 })
 export class AggridComponent {
   public columnDefs: any = [  // Specify type as (ColDef | ColGroupDef)[]
@@ -64,4 +57,8 @@ export class AggridComponent {
 			});
 
 	}
+
+  exportToExcel() {
+    // Implement Excel export logic here
+  }
 }

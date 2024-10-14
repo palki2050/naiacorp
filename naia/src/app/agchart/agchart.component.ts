@@ -1,18 +1,18 @@
-import { Component } from "@angular/core";
-import { AgCharts } from "ag-charts-angular";
-import { AgChartOptions, AgFlowProportionChartOptions } from "ag-charts-community";
+import { Component, ViewChild } from "@angular/core";
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
 import { getData, getSeries } from "./data";
-import { BillingServiceService } from "../service/billing-service.service";
 
 @Component({
   selector: 'app-agchart',
   templateUrl: './agchart.component.html',
   styleUrls: ['./agchart.component.scss']
 })
+
 export class AgchartComponent {
   public options: any;
-rowData = [];
-  constructor(private billingServiceService: BillingServiceService) {
+  public rowData = [];
+  constructor() {
     this.options = {
       title: {
         text: "Annual Fuel Expenditure",
@@ -21,16 +21,22 @@ rowData = [];
       series: getSeries(),
     };
   }
-  // getLocalJsonDta(path:any) {
-	// 	this.billingServiceService
-	// 		.getList(path)
-	// 		.pipe()
-	// 		.subscribe((data) => {
-	// 			//this.stateList = data.content;
-  //       console.log(data)
-  //       this.rowData = data;
-  //       this.options.series = this.rowData
-	// 		});
+  
+  @ViewChild('chart') chart: any; // Reference to the chart DOM element
 
-	// }
+  // Method to generate PDF
+  generatePDF() {
+    html2canvas(this.chart.nativeElement).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+
+      // Specify the width and height for the image
+      const imgWidth = pdf.internal.pageSize.getWidth();
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+      // Add the image to the PDF
+      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight); // Use width and height
+      pdf.save('chart.pdf'); // Save the PDF
+    });
+  }
 }

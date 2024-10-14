@@ -58,13 +58,6 @@ export class SidebarComponent implements OnInit {
     this.filterTransactions();
   }
 
-  exportToPDF() {
-    // Implement PDF export logic here
-  }
-
-  exportToExcel() {
-    // Implement Excel export logic here
-  }
 }
 function moment(transactionDate: string) {
   throw new Error('Function not implemented.');
