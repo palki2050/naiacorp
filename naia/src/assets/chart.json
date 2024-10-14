@@ -1,0 +1,13 @@
+[
+    { "type": "line", "xKey": "quarter", "yKey": "petrol", "yName": "Petrol" },
+    { "type": "line", "xKey": "quarter", "yKey": "petrol", "yName": "Petrol" },
+    { "type": "line", "xKey": "quarter", "yKey": "petrol", "yName": "Petrol" },
+    { "type": "line", "xKey": "quarter", "yKey": "petrol", "yName": "Petrol" },
+    { "type": "line", "xKey": "quarter", "yKey": "petrol", "yName": "Petrol" },
+    { "type": "line", "xKey": "quarter", "yKey": "petrol", "yName": "Petrol" },
+    { "type": "line", "xKey": "quarter", "yKey": "petrol", "yName": "Petrol" },
+    { "type": "line", "xKey": "quarter", "yKey": "petrol", "yName": "Petrol" },
+    { "type": "line", "xKey": "quarter", "yKey": "petrol", "yName": "Petrol" },
+    { "type": "line", "xKey": "quarter", "yKey": "petrol", "yName": "Petrol" }
+    
+  ]

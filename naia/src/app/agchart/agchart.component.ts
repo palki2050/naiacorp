@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
 import { AgCharts } from "ag-charts-angular";
 import { AgChartOptions, AgFlowProportionChartOptions } from "ag-charts-community";
-import { getData } from "./data";
+import { getData, getSeries } from "./data";
+import { BillingServiceService } from "../service/billing-service.service";
 
 @Component({
   selector: 'app-agchart',
@@ -10,17 +11,26 @@ import { getData } from "./data";
 })
 export class AgchartComponent {
   public options: any;
-
-  constructor() {
+rowData = [];
+  constructor(private billingServiceService: BillingServiceService) {
     this.options = {
       title: {
         text: "Annual Fuel Expenditure",
       },
       data: getData(),
-      series: [
-        { type: 'line', xKey: 'quarter', yKey: 'petrol', yName: 'Petrol' },
-        { type: 'line', xKey: 'quarter', yKey: 'diesel', yName: 'Diesel' },
-      ],
+      series: getSeries(),
     };
   }
+  // getLocalJsonDta(path:any) {
+	// 	this.billingServiceService
+	// 		.getList(path)
+	// 		.pipe()
+	// 		.subscribe((data) => {
+	// 			//this.stateList = data.content;
+  //       console.log(data)
+  //       this.rowData = data;
+  //       this.options.series = this.rowData
+	// 		});
+
+	// }
 }
