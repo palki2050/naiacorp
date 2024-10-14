@@ -2,18 +2,15 @@ import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-mod
 import {
   ModuleRegistry
 } from "@ag-grid-community/core";
-// import "@ag-grid-community/styles/ag-grid.css";
-// import "@ag-grid-community/styles/ag-theme-quartz.css";
 import { HttpClient } from "@angular/common/http";
 import { Component } from "@angular/core";
 import { IOlympicData } from "./interfaces";
+import { BillingServiceService } from "../service/billing-service.service";
 
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
 @Component({
   selector: 'app-aggrid',
- // standalone: true,
- // imports: [AgGridAngular, HttpClientModule],
   template: `<ag-grid-angular
     style="width: 100%; height: 100%;"
     [columnDefs]="columnDefs"
@@ -25,16 +22,12 @@ ModuleRegistry.registerModules([ClientSideRowModelModule]);
 })
 export class AggridComponent {
   public columnDefs: any = [  // Specify type as (ColDef | ColGroupDef)[]
-    { field: "athlete", minWidth: 170 },
-    { field: "age" },
-    { field: "country" },
-    { field: "year" },
-    { field: "date" },
-    { field: "sport" },
-    { field: "gold" },
-    { field: "silver" },
-    { field: "bronze" },
-    { field: "total" },
+    { field: "patientName", minWidth: 170 },
+    { field: "LastName" },
+    { field: "TransactionDate" },
+    { field: "PatientMRN" },
+    { field: "Encounter" },
+    { field: "DOB" },
   ];
   
   public defaultColDef: any = {
@@ -45,17 +38,30 @@ export class AggridComponent {
   public rowData: IOlympicData[] = [];  // Initialize as an empty array
   public themeClass: string = "ag-theme-quartz";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private billingServiceService: BillingServiceService) {
+    this.getLocalJsonDta('data.json')
+  }
 
   onGridReady() {
     this.http.get<IOlympicData[]>("https://www.ag-grid.com/example-assets/olympic-winners.json")
       .subscribe({
         next: (data) => {
-          this.rowData = data;
+          //this.rowData = data;
         },
         error: (err) => {
           console.error('Error fetching data', err); // Error handling
         }
       });
   }
+  getLocalJsonDta(path:any) {
+		this.billingServiceService
+			.getList(path)
+			.pipe()
+			.subscribe((data) => {
+				//this.stateList = data.content;
+        console.log(data)
+        this.rowData = data
+			});
+
+	}
 }

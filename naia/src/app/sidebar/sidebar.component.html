@@ -1,9 +1,41 @@
+<div>
+  <h3>Billing Report</h3>
+  <form nz-form [formGroup]="filterForm" (ngSubmit)="onFilterChange()">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Time Frame</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <nz-select formControlName="timeFrame" (ngModelChange)="onFilterChange()">
+          <nz-option *ngFor="let period of ['week', 'month', 'quarter', 'semester', 'year', 'year-to-date']" 
+                     [nzValue]="period" 
+                     [nzLabel]="period.charAt(0).toUpperCase() + period.slice(1)">
+          </nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+<br>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6">Date Range</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <nz-range-picker formControlName="dateRange" (ngModelChange)="onFilterChange()"></nz-range-picker>
+      </nz-form-control>
+    </nz-form-item>
 
-<nz-select ngModel="lucy">
-  <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-  <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-  <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
-</nz-select>
-
-<nz-range-picker [nzShowTime]="true" [(ngModel)]="date"
-  (ngModelChange)="onChange($event)"></nz-range-picker>
+    <br>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6">Locations</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <nz-select formControlName="locations" nzMode="multiple" (ngModelChange)="onFilterChange()">
+          <nz-option *ngFor="let location of ['Branch A', 'Branch B']" [nzValue]="location" [nzLabel]="location">
+          </nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <br>
+    
+    <nz-form-item>
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary" type="submit">Apply Filters</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  </div>
