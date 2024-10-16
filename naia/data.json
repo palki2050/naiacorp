@@ -6,7 +6,7 @@
       "Encounter": 150.00,
       "DOB": "DOB A",
       "patientName": "John",
-      "LastName":"Doe",
+      "LastName": "Doe",
       "PatientMRN": 101
     },
     {
@@ -15,7 +15,7 @@
       "Encounter": 250.00,
       "DOB": "DOB B",
       "patientName": "Jane ",
-      "LastName":"Smith",
+      "LastName": "Smith",
       "PatientMRN": 102
     },
     {
@@ -24,7 +24,7 @@
       "Encounter": 100.00,
       "DOB": "DOB A",
       "patientName": "Alice ",
-      "LastName":"Johnson",
+      "LastName": "Johnson",
       "PatientMRN": 103
     },
     {
@@ -33,7 +33,7 @@
       "Encounter": 300.00,
       "DOB": "DOB C",
       "patientName": "Bob ",
-      "LastName":"Brown",
+      "LastName": "Brown",
       "PatientMRN": 104
     },
     {
@@ -42,7 +42,7 @@
       "Encounter": 400.00,
       "DOB": "DOB B",
       "patientName": "Charlie ",
-      "LastName":"Green",
+      "LastName": "Green",
       "PatientMRN": 105
     },
     {
@@ -51,17 +51,45 @@
       "Encounter": 200.00,
       "DOB": "DOB A",
       "patientName": "Diana ",
-      "LastName":"Prince",
+      "LastName": "Prince",
       "PatientMRN": 106
     }
   ],
-  
-  "charts":  [
-    { "id": 1, "type": "line", "xKey": "quarter", "yKey": "max", "yName": "max" },
-    { "id": 2, "type": "line", "xKey": "quarter", "yKey": "pushpajali", "yName": "pushpajali" },
-    { "id": 3, "type": "line", "xKey": "quarter", "yKey": "apax", "yName": "apax" },
-    { "id": 4, "type": "line", "xKey": "quarter", "yKey": "cloud9", "yName": "cloud9" },
-    { "id": 5, "type": "line", "xKey": "quarter", "yKey": "medhanta", "yName": "medhanta" }
-    
+  "charts": [
+    {
+      "id": 1,
+      "type": "line",
+      "xKey": "quarter",
+      "yKey": "max",
+      "yName": "max"
+    },
+    {
+      "id": 2,
+      "type": "line",
+      "xKey": "quarter",
+      "yKey": "pushpajali",
+      "yName": "pushpajali"
+    },
+    {
+      "id": 3,
+      "type": "line",
+      "xKey": "quarter",
+      "yKey": "apax",
+      "yName": "apax"
+    },
+    {
+      "id": 4,
+      "type": "line",
+      "xKey": "quarter",
+      "yKey": "cloud9",
+      "yName": "cloud9"
+    },
+    {
+      "id": 5,
+      "type": "line",
+      "xKey": "quarter",
+      "yKey": "medhanta",
+      "yName": "medhanta"
+    }
   ]
 }

@@ -1,40 +1,47 @@
 export function getData() {
-    return [
-      {
-        quarter: "Q1",
-        petrol: 200,
-        diesel: 100,
-        cng:500
-      },
-      {
-        quarter: "Q4",
-        petrol: 400,
-        diesel: 200,
-        cng:500
-      },
-    ];
-  }
-  export function getSeries() {
-    return [
-      {
-        type: "line",
-        xKey: "quarter",
-        yKey: "petrol",
-        yName: "Petrol",
-      },
-      {
-        type: "line",
-        xKey: "quarter",
-        yKey: "diesel",
-        yName: "Diesel",
-      },
-      {
-        type: "line",
-        xKey: "quarter",
-        yKey: "cng",
-        yName: "CNG",
-      },
-      
-    ];
-  }
-  
+  return [
+    {
+      quarter: "Q1",
+      max: 200,
+      pushpajali: 100,
+      apax: 500,
+      cloud9: 400
+    },
+    {
+      quarter: "Q4",
+      max: 400,
+      pushpajali: 200,
+      apax: 500,
+      cloud9: 400
+    }
+  ];
+}
+export function getSeries() {
+  return [
+    {
+      type: "line",
+      xKey: "quarter",
+      "yKey": "pushpajali",
+      "yName": "pushpajali"
+    },
+    {
+      type: "line",
+      xKey: "quarter",
+      "yKey": "max",
+      "yName": "max"
+    },
+    {
+      type: "line",
+      xKey: "quarter",
+      "yKey": "apax",
+      "yName": "apax"
+    },
+    {
+      type: "line",
+      xKey: "quarter",
+      "yKey": "cloud9",
+      "yName": "cloud9"
+    },
+
+  ];
+}

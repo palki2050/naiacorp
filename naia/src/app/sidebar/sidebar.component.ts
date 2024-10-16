@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Transaction } from '../models/transaction.model';
 import { BillingServiceService } from '../service/billing-service.service';
 @Component({
@@ -9,29 +9,36 @@ import { BillingServiceService } from '../service/billing-service.service';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  public filterForm: FormGroup;
+  filterForm: FormGroup;
   public transactions: Transaction[] = [];
   public selectedTransactions: Transaction[] = [];
   public chartData: any[] = [];
+
   constructor(private fb: FormBuilder, private billingService: BillingServiceService) {
     this.filterForm = this.fb.group({
-      timeFrame: ['week'],  // Default value
-      locations: [[]],       // Empty array for multi-select
-      dateRange: [null],     // Date range for filtering
+      timeFrame: ['', Validators.required],
+      dateRange: [null, Validators.required],
+      locations: [[], Validators.required]
     });
   }
   ngOnInit(): void {
-   // this.loadTransactions();
+   this.loadTransactions();
     
   }
 
-  // loadTransactions() {
-  //   this.billingService.getGridData().subscribe((data:any) => {
-  //     this.transactions = data;
-  //     this.filterTransactions();
-  //   });
-  // }
-
+  loadTransactions() {
+    this.billingService.getGridData().subscribe((data:any) => {
+      this.transactions = data;
+      this.filterTransactions();
+    });
+  }
+  onSubmit() {
+    if (this.filterForm.valid) {
+      console.log('Form Submitted', this.filterForm.value);
+    } else {
+      this.filterForm.markAllAsTouched(); // Mark all controls as touched
+    }
+  }
   filterTransactions() {
     // Implement filtering logic based on form values
     const { timeFrame, locations, dateRange } = this.filterForm.value;
