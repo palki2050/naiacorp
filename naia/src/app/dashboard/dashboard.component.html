@@ -6,7 +6,7 @@
                     <app-aggrid></app-aggrid>
                   </ng-container>
                   <ng-container *ngIf="selectedView === 'childTwo'">
-                    <app-agchart chartData={{chartData}} ></app-agchart>
+                    <app-agchart [chartData]=chartData ></app-agchart>
                   </ng-container>
                 
             </div>

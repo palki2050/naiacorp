@@ -16,18 +16,18 @@ export class SidebarComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private billingService: BillingServiceService) {
     this.filterForm = this.fb.group({
-      timeFrame: ['', Validators.required],
+      timeFrame: ['year-to-date', Validators.required],
       dateRange: [null, Validators.required],
       locations: [[], Validators.required]
     });
   }
   ngOnInit(): void {
-   this.loadTransactions();
-    
+    this.loadTransactions();
+
   }
 
   loadTransactions() {
-    this.billingService.getGridData().subscribe((data:any) => {
+    this.billingService.getGridData().subscribe((data: any) => {
       this.transactions = data;
       this.filterTransactions();
     });
@@ -45,7 +45,7 @@ export class SidebarComponent implements OnInit {
 
     // Example filter logic:
     this.selectedTransactions = this.transactions.filter(transaction => {
-      const date:any = moment(transaction.transactionDate);
+      const date: any = moment(transaction.transactionDate);
       const isInDateRange = dateRange ? (date.isBetween(dateRange[0], dateRange[1], null, '[]')) : true;
       const isInLocation = locations.length ? locations.includes(transaction.location) : true;
 

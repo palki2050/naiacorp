@@ -1,47 +1,59 @@
 <div>
   <div class="filters">Filters</div>
   <form nz-form [formGroup]="filterForm" (ngSubmit)="onSubmit()" style="padding: 10px;">
-    <nz-form-item>
-      <nz-form-label [nzSpan]="6" nzRequired>Time Frame</nz-form-label>
-      <nz-form-control [nzSpan]="14">
-        <nz-select formControlName="timeFrame" (ngModelChange)="onFilterChange()">
-          <nz-option *ngFor="let period of ['week', 'month', 'quarter', 'semester', 'year', 'year-to-date']" 
-                     [nzValue]="period" 
-                     [nzLabel]="period.charAt(0).toUpperCase() + period.slice(1)">
-          </nz-option>
-        </nz-select>
-        <div *ngIf="filterForm.get('timeFrame')?.invalid && filterForm.get('timeFrame')?.touched" class="error-message">
-          Time Frame is required!
-        </div>
-      </nz-form-control>
-    </nz-form-item>
+    <div>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Time Frame</nz-form-label><br>
 
-    <nz-form-item>
-      <nz-form-label [nzSpan]="6">Date Range</nz-form-label>
-      <nz-form-control [nzSpan]="14">
-        <nz-range-picker formControlName="dateRange" (ngModelChange)="onFilterChange()"></nz-range-picker>
-        <div *ngIf="filterForm.get('dateRange')?.invalid && filterForm.get('dateRange')?.touched" class="error-message">
-          Date Range is required!
-        </div>
-      </nz-form-control>
-    </nz-form-item>
-<br>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="6">Locations</nz-form-label><br>
-      <nz-form-control [nzSpan]="14">
-        <nz-select formControlName="locations" nzMode="multiple" (ngModelChange)="onFilterChange()" style="width: 100px;">
-          <nz-option *ngFor="let location of ['Gurugram', 'Delhi NCR', 'Maharashtra', 'Noida']" [nzValue]="location" [nzLabel]="location"></nz-option>
-        </nz-select>
-        <div *ngIf="filterForm.get('locations')?.invalid && filterForm.get('locations')?.touched" class="error-message">
-          At least one location is required!
-        </div>
-      </nz-form-control>
-    </nz-form-item><br><br><br>
+        <nz-form-control [nzSpan]="14">
+          <nz-select formControlName="timeFrame" (ngModelChange)="onFilterChange()" class="w-100">
+            <nz-option *ngFor="let period of ['week', 'month', 'quarter', 'semester', 'year', 'year-to-date']"
+              [nzValue]="period" [nzLabel]="period.charAt(0).toUpperCase() + period.slice(1)">
+            </nz-option>
+          </nz-select>
+          <div *ngIf="filterForm.get('timeFrame')?.invalid && filterForm.get('timeFrame')?.touched"
+            class="error-message">
+            Time Frame is required!
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
 
-    <nz-form-item>
-      <nz-form-control [nzSpan]="14" [nzOffset]="6">
-        <button nz-button nzType="primary" class="btn btn-primary" type="submit"> Filter</button>
-      </nz-form-control>
-    </nz-form-item>
+    <div>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6">Date Range</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <nz-range-picker formControlName="dateRange" (ngModelChange)="onFilterChange()"></nz-range-picker>
+          <div *ngIf="filterForm.get('dateRange')?.invalid && filterForm.get('dateRange')?.touched"
+            class="error-message">
+            Date Range is required!
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div>
+      <nz-form-item >
+        <nz-form-label [nzSpan]="6">Locations</nz-form-label><br>
+        <nz-form-control [nzSpan]="14">
+          <nz-select formControlName="locations" nzMode="multiple" (ngModelChange)="onFilterChange()" class="w-100"
+            style="width: 100px;">
+            <nz-option *ngFor="let location of ['Gurugram', 'Delhi NCR', 'Maharashtra', 'Noida']" [nzValue]="location"
+              [nzLabel]="location"></nz-option>
+          </nz-select>
+          <div *ngIf="filterForm.get('locations')?.invalid && filterForm.get('locations')?.touched"
+            class="error-message">
+            At least one location is required!
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div>
+      <nz-form-item >
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button nz-button nzType="primary" class="btn btn-primary mt-4" type="submit"> Filter</button>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
   </form>
 </div>

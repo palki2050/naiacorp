@@ -1,8 +1,5 @@
-import { Component, ViewChild, OnInit, Input } from "@angular/core";
-import html2canvas from 'html2canvas';
-import { jsPDF } from 'jspdf';
-import { getData, getSeries } from "./data";
-import { BillingServiceService } from "../service/billing-service.service";
+import { Component, Input, OnInit } from "@angular/core";
+import { getData } from "./data";
 
 @Component({
   selector: 'app-agchart',
@@ -11,19 +8,19 @@ import { BillingServiceService } from "../service/billing-service.service";
 })
 
 export class AgchartComponent implements OnInit {
-  @Input() chartData :any;
+  @Input() chartData: any;
   public options: any;
   constructor() {
+
+  }
+
+  ngOnInit(): void {
     this.options = {
       title: {
         text: "Annual Hospital Expenditure",
       },
       data: getData(),
-      series: getSeries(),
+      series: this.chartData,
     };
-  }
-
-  ngOnInit(): void {
-
   }
 }
