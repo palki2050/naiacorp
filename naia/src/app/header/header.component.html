@@ -1,8 +1,7 @@
-<div nz-menu nzTheme="light" nzMode="horizontal" class="header-menu">
+<div nz-menu >
   <div class="row">
-    <div class="col-6"><nz-page-header-title><span style="padding: 20px;">Billing Report</span></nz-page-header-title>
-    </div>
-    <div class="col-6">
+    <div class="col-12">
+      <div style="position: absolute;left: 50px;font-weight: 600;color: #655d5d;">Billing Report</div>
       <div style="position: absolute;right: 50px;">
         <label>
           <input type="radio" name="view" value="childOne" [(ngModel)]="selectedView" (change)="onSelect('childOne')">
