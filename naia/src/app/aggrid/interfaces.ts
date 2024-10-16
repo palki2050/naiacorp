@@ -1,5 +1,5 @@
-export interface IOlympicData {
-    patientName: string;
+export interface hospitalData {
+    PatientName: string;
     LastName: string;
     TransactionDate: number;
     PatientMRN: number;

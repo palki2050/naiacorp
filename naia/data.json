@@ -1,4 +1,5 @@
-[
+{
+  "griddata": [
     {
       "transactionId": 1,
       "transactionDate": "2024-10-01",
@@ -53,4 +54,14 @@
       "LastName":"Prince",
       "PatientMRN": 106
     }
+  ],
+  
+  "charts":  [
+    { "id": 1, "type": "line", "xKey": "quarter", "yKey": "max", "yName": "max" },
+    { "id": 1, "type": "line", "xKey": "quarter", "yKey": "pushpajali", "yName": "pushpajali" },
+    { "id": 1, "type": "line", "xKey": "quarter", "yKey": "apax", "yName": "apax" },
+    { "id": 1, "type": "line", "xKey": "quarter", "yKey": "cloud9", "yName": "cloud9" },
+    { "id": 1, "type": "line", "xKey": "quarter", "yKey": "medhanta", "yName": "medhanta" }
+    
   ]
+}

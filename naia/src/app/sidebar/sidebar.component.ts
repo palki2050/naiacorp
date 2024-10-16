@@ -21,16 +21,16 @@ export class SidebarComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.loadTransactions();
+   // this.loadTransactions();
     
   }
 
-  loadTransactions() {
-    this.billingService.getTransactions().subscribe((data) => {
-      this.transactions = data;
-      this.filterTransactions();
-    });
-  }
+  // loadTransactions() {
+  //   this.billingService.getGridData().subscribe((data:any) => {
+  //     this.transactions = data;
+  //     this.filterTransactions();
+  //   });
+  // }
 
   filterTransactions() {
     // Implement filtering logic based on form values

@@ -6,18 +6,26 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class BillingServiceService {
-
+private gridurl = 'http://localhost:3000/griddata';
+private charturl = 'http://localhost:3000/charts';
   constructor(private http: HttpClient) { }
-  private transactions: Transaction[] = [
-    { patientName: 'John Doe', transactionDate: '2023-10-01', amount: 150, location: 'Branch A' },
-    { patientName: 'Jane Smith', transactionDate: '2023-10-02', amount: 200, location: 'Branch B' },
-    // Add more mock data...
-  ];
+  // private transactions: Transaction[] = [
+  //   { patientName: 'John Doe', transactionDate: '2023-10-01', amount: 150, location: 'Branch A' },
+  //   { patientName: 'Jane Smith', transactionDate: '2023-10-02', amount: 200, location: 'Branch B' },
+  //   // Add more mock data...
+  // ];
 
-  getTransactions(): Observable<Transaction[]> {
-    return of(this.transactions);
+  // getTransactions(): Observable<Transaction[]> {
+  //   return of(this.transactions);
+  // }
+  // getList(fileName:any): Observable<any> {
+	// 	return this.http.get(`assets/`+ `${fileName}`);
+	// }
+
+  getGridData(): Observable<any> {
+    return this.http.get(this.gridurl);
   }
-  getList(fileName:any): Observable<any> {
-		return this.http.get(`assets/`+ `${fileName}`);
-	}
+  getChartData(): Observable<any> {
+    return this.http.get(this.charturl);
+  }
 }
