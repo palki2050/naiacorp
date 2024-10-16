@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Transaction } from '../models/transaction.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,5 +27,11 @@ private charturl = 'http://localhost:3000/charts';
   }
   getChartData(): Observable<any> {
     return this.http.get(this.charturl);
+  }
+  private selectedViewSource = new BehaviorSubject<string>('childOne');
+  selectedView$ = this.selectedViewSource.asObservable();
+
+  changeView(view: string) {
+    this.selectedViewSource.next(view);
   }
 }

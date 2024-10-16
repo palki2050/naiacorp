@@ -5,3 +5,13 @@
 nz-sider.ant-layout-sider.ant-layout-sider-light, nz-content.inner-content.ant-layout-content {
     border-radius: 10px;
 }
+ag-grid-angular.ag-theme-quartz {
+    height: 70vh !important;
+}
+nz-sider.ant-layout-sider.ant-layout-sider-light {
+    margin-top: -5px;
+    z-index: 9;
+}
+body {
+    background-color: #f3f7ff;
+}

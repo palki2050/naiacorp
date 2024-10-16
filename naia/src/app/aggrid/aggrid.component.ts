@@ -2,7 +2,6 @@ import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-mod
 import {
   ModuleRegistry
 } from "@ag-grid-community/core";
-import { HttpClient } from "@angular/common/http";
 import { Component } from "@angular/core";
 import { hospitalData } from "./interfaces";
 import { BillingServiceService } from "../service/billing-service.service";
@@ -30,7 +29,7 @@ export class AggridComponent {
   public rowData: hospitalData[] = [];  // Initialize as an empty array
   public themeClass: string = "ag-theme-quartz";
 
-  constructor(private http: HttpClient, private billingServiceService: BillingServiceService) {
+  constructor( private billingServiceService: BillingServiceService) {
   }
   getGridData() {
     this.billingServiceService.getGridData().subscribe((data) => {

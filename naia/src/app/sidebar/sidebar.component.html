@@ -1,8 +1,10 @@
 <div>
-  <h3>Billing Report</h3>
-  <form nz-form [formGroup]="filterForm" (ngSubmit)="onFilterChange()">
+  <div class="filters">
+    Filters
+  </div>
+  <form nz-form [formGroup]="filterForm" (ngSubmit)="onFilterChange()" style="padding: 10px;">
     <nz-form-item>
-      <nz-form-label [nzSpan]="6" nzRequired>Time Frame</nz-form-label>
+      <nz-form-label [nzSpan]="6" nzRequired>Time Frame</nz-form-label><br>
       <nz-form-control [nzSpan]="14">
         <nz-select formControlName="timeFrame" (ngModelChange)="onFilterChange()">
           <nz-option *ngFor="let period of ['week', 'month', 'quarter', 'semester', 'year', 'year-to-date']" 

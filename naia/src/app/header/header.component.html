@@ -1,5 +1,18 @@
-<div class="logo"></div>
-    <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
-      <li nz-menu-item nzSelected>Chart</li>
-      <li nz-menu-item>Tabular</li>
-    </ul>
+
+    <div nz-menu nzTheme="light" nzMode="horizontal" class="header-menu">
+      <div class="row">
+        <div class="col-6"><nz-page-header-title><span style="padding: 20px;">Billing Report</span></nz-page-header-title></div>
+        <div class="col-6" > 
+          <div style="position: absolute;right: 50px;">
+            <label>
+              <input type="radio" name="view" value="childOne"  [(ngModel)]="selectedView" 
+                     (change)="onSelect('childOne')"> Grid View
+            </label>
+            <label>
+              <input type="radio" name="view" value="childTwo"  [(ngModel)]="selectedView" 
+                     (change)="onSelect('childTwo')"> Chart View
+            </label>
+          </div></div>
+      </div>
+    </div>
+    

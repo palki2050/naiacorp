@@ -21,7 +21,12 @@ export class AgchartComponent {
       series: getSeries(),
     };
   }
-  
+  // getChartData() {
+  //   this.billingServiceService.getChartData().subscribe((data) => {
+  //     console.log(data);
+  //     this.rowData = data;
+  //   })
+  // }
   @ViewChild('chart') chart: any; // Reference to the chart DOM element
 
   // Method to generate PDF

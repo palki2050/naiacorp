@@ -1,12 +1,16 @@
 <div class="inner-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-6">
-                <app-agchart></app-agchart>
+            <div class="col-12">
+                <ng-container *ngIf="selectedView === 'childOne'">
+                    <app-aggrid></app-aggrid>
+                  </ng-container>
+                  <ng-container *ngIf="selectedView === 'childTwo'">
+                    <app-agchart ></app-agchart>
+                  </ng-container>
+                
             </div>
-            <div class="col-6">
-                <app-aggrid></app-aggrid>
-            </div>
+            
         </div>
     </div>
 </div>
